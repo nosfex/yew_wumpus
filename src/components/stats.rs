@@ -1,4 +1,3 @@
-#[macro_use]
 use yew::prelude::*;
 pub struct Stats {
     title: String,

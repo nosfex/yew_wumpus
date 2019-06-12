@@ -4,11 +4,15 @@ version = "0.1.0"
 authors = ["Gerardo Heidel <heidel.gerardo@gmail.com>"]
 edition = "2018"
 
+
+[[bin]]
+name  = "hunt"
+path = "src/main.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 yew = {git = "https://github.com/DenisKolodin/yew" }
-
+stdweb = "0.4"
 [lib]
 name = "rumpus"
 path = "src/lib.rs"

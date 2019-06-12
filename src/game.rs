@@ -6,7 +6,7 @@ pub struct Game {
     pub messages: Vec<String>,
     pub wumpus: u8,
     bats: [u8; 2],
-    pits: [u8, 2],
+    pits: [u8; 2],
 }
 
 impl Game {
@@ -53,6 +53,26 @@ impl Game {
               .messages
               .push("You hear a faint but distinct flapping of wings.".into());
           }
+        }
+    }
+
+    pub fn move_effects(&mut self) -> Option<String> {
+        self.warning_messages();
+        if self.current_room == self.wumpus {
+            Some("You have been eaten slowly and painfully by the Wumpus".into())
+        } else if self.pits.contains(&self.current_room) {
+            Some( "You have fallen into a bottomless pit and must now wait to die, falling all the while"
+            .into(),)
+        } else if self.bats.contains(&self.current_room) {
+            let current = self.current_room;
+            let next = self.get_empty_room();
+            self.messages.push(format!( "A gigantic bat whisks you from room {} to room {} before you can even blink",
+                current, next));
+            self.current_room = next;
+            self.warning_messages();
+            None
+        } else {
+            None
         }
     }
 }

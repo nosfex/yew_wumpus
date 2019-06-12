@@ -1,4 +1,3 @@
-#[macro_use]
 use yew::prelude::*;
 pub struct Controls {
     title: String,
@@ -62,7 +61,8 @@ impl Renderable<Controls> for Controls {
             let t = *target;
             html! {
                <span class="control-button",>
-                   <button onclick=|_| Msg::ButtonPressed(SwitchRoom(t)),>{&format!("Move to {}", target)}</button>
+                    <button onclick=|_| Msg::ButtonPressed(SwitchRoom(t)),>{&format!("Move to {}", target)}</button>
+                    <button onclick=|_| Msg::ButtonPressed(ShootArrow(t)),>{&format!("Shoot {}", target)}</button>
                </span>
            }
         };

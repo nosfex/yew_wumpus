@@ -166,6 +166,7 @@ dependencies = [
 name = "rumpus"
 version = "0.1.0"
 dependencies = [
+ "stdweb 0.4.17 (registry+https://github.com/rust-lang/crates.io-index)",
  "yew 0.7.0 (git+https://github.com/DenisKolodin/yew)",
 ]
 
